@@ -1,62 +1,19 @@
-#RHEL System Administration Labs
+# How I'm Learning Linux Basics
 
-This repository documents my hands-on experience learning Red Hat Enterprise Linux (RHEL) and developing practical Linus system administration skills while preparing for the Red hat Certified System Adminstrator (RHCSA) exam.
+I started by getting a Red Hat Enterprise Linux (RHEL) 10 VM to boot. From there, I worked through the shell, learned how Linux organizes files, and started combining commands to explore text and logs. I'm using this repo to keep track of the commands I try, what their output tells me, and what I figure out when something goes wrong.
 
-Rather than document theory alone, this repository focuses on practical labs, commands, troubleshooting, and sytem configuration performed in my RHEL lab environment.
+## Start here
 
-## Study Source 
+If you're new to Linux, start with Lab 01 to set up the practice environment. If you already have a Linux shell, start with Lab 02. Follow the labs in order to build from running a command to combining tools and working at a local console.
 
-- Red hat RHCSA 10 Cert Guide: EX200
-  
-## Lab Environment
-
-- Red Hat Enterprise Linux
-- Virtualized lab environment
-- SSH remote administration
-- Command-line focused administration
-
-## Skills Being Developed
-
-- Linux command line administration
-- User and group management
-- File permissions and ownership
-- Package management with DNF
-- Process management
-- systemd service management
-- Linux networking
-- SSH administration
-- Storage and LVM
-- Filesystem management
-- SeLinux
-- firewalld
-- Bash Scripting
-- Containers with Podman
-- Linux troubleshooting
-
-## Labs
-
-| Lab | Topic |
+| Lab | What you'll learn |
 | --- | --- |
-| 01 | Environment Setup |
-| 02 | Command Line |
-| 03 | Files and Directories |
-| 04 | Users and Groups |
-| 05 | Permissions |
-| 06 | Package Management |
-| 07 | Process Management |
-| 08 | systemd Services |
-| 09 | Networking |
-| 10 | SSH |
-| 11 | Storage and LVM |
-| 12 | Filesystems |
-| 13 | SELinux |
-| 14 | Firewall |
-| 15 | Task Scheduling |
-| 16 | Bash Scripting |
-| 17 | Containers |
+| [01 · Set up a Linux VM](01-environment-setup/) | Install RHEL in Hyper-V, troubleshoot a PXE boot screen, and verify the installation. |
+| [02 · Get comfortable with the shell](02-essential-tools/) | Read command syntax, identify aliases and built-ins, and practice pipes, redirection, and command history. |
+| [03 · Find and manage files](03-essential%20file%20management%20tools/) | Navigate with absolute and relative paths, use wildcards, and inspect mounts, and work with links and archives. |
+| [04 · Read and work with text](04-working%20with%20text%20files/) | Browse files with `less`, inspect lines with `head` and `tail`, and filter and count matching lines with `grep` and `wc`. |
+| [05 · Use a local Linux console](05-connecting%20to%20Red%20Hat%20Enterprise%20Linux/) | Understand the roles of the console, terminal, and shell, and distinguish graphical and text-based logins. |
 
-## Goal
+## Lab environment
 
-My goal is to develop the practical Linux administration
-skills required for RHCSA certification and an entry-level
-Linux/System Administrator role.
+I run RHEL 10 in a Microsoft Hyper-V VM on a Dell Precision workstation. I'm using the *Red Hat RHCSA 10 Cert Guide (EX200)* as a study reference while I build the Linux fundamentals I need for system administration.

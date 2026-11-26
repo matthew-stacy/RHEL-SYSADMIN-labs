@@ -1,4 +1,6 @@
-# Working With Text Files
+# Lab 04 · Reading and Filtering Text
+
+I worked through how to read a long file, pull out specific fields, and count the lines that match a pattern. My main takeaway was to filter first, then count. For example, I can use `grep` to select matching lines and pipe the result into `wc -l`.
 
 ## Using Common Text File-Related Tools
 
@@ -18,9 +20,9 @@ Below are commands that can display text files in an efficient way.
 
 'less' is useful for reading longer text files because it allows navigation and searching without modifying the file.
 
-'''bash
+```bash
 less /etc/passwd
-'''
+```
 
 Use controls while inside 'less':
 
@@ -36,15 +38,15 @@ Use controls while inside 'less':
 
 Command output can be piped into 'less':
 
-'''bash
+```bash
 ps aux | less 
-'''
+```
 
 The pipe sends the standard output of 'ps aux' to the standard input of 'less'.
 
-'''text
+```text
 ps aux -> STDOUT -> | STDIN -> less
-'''
+```
 
 'ps aux' displays a detailed list of running processes. For this section, the important concept is using ' | less' to make long command output easier to browse.
 
@@ -52,15 +54,15 @@ ps aux -> STDOUT -> | STDIN -> less
 
 'cat' displays the contents of a file directly in the terminal:
 
-'''bash
+```bash
 cat /etc/passwd
-'''
+```
 
 'cat' is convenient for short files. For longer files, 'less' is usually easier because it provides navigation and searching. 
 
 ### Quick Mental Model
 
-'''text
+```text
 cat -> show me everything
 less -> let me browse this
 head -> show me the beginning
@@ -68,14 +70,14 @@ tail -> show me the end
 cut -> give me specific parts
 sort -> put this in order
 wc -> count this
-'''
+```
 
 ### 'less' vs 'cat' 
 
-'''text
+```text
 Short file / quick output -> cat
 Long file / need navigation -> less
-'''
+```
 
 ## Displaying File Contents with 'head' and 'tail' 
 
@@ -86,7 +88,7 @@ Long file / need navigation -> less
 | Command | Purpose |
 | --- | --- |
 | 'head FILE' | First 10 lines by default |
-| 'tail FILE; | Last 10 lines by default |
+| `tail FILE` | Last 10 lines by default |
 | 'head -n 5 FILE' | First 5 lines |
 | 'tail -n 5 FILE' | Last 5 lines |
 | 'tail -f FILE' | Will show the last 10 lines following newly appended lines |
@@ -95,18 +97,18 @@ Long file / need navigation -> less
 
 The '-n' option specifies the number of lines. 
 
-'''bash
+```bash
 head -n 5 /etc/passwd
 tail -n 5 /etc/passwd
-'''
+```
 
-Current versions also support 'tail -5 as shorthand for 'tail -n 5'.
+`tail -5` is shorthand for `tail -n 5`.
 
 ### Monitoring Log Files
 
-'''bash
+```bash
 sudo tail -f /var/log/messages
-'''
+```
 
 '-f' follows the file and displays new lines as they are appended. This is useful for troubleshooting system logs. 
 
@@ -116,9 +118,9 @@ Press 'Ctrl+C' to stop monitoring.
 
 Display only line 11 of 'etc/passwd':
 
-'''bash
+```bash
 head -n 11 /etc/passwd | tail -n 1
-'''
+```
 
 1. 'head' outputs lines 1-11.
 2. The pipe passes that output to 'tail'.
@@ -143,27 +145,27 @@ The cut command extracts specific fields or columns from text
 It is useful when working with structured files such as /etc/passwd
 
 Important options: 
-- -d = Defines the delimited (character separating fields)
+- -d = Sets the delimiter (the character separating fields)
 - -f = Specifies which field(s) to extract
 
 Example: 
 
-'''Bash
+```bash
 cut -d ':' -f 1 /etc/passwd
-'''
+```
 
 Explanation:
 - -d ':' tells Linux that fields are separated by colons
 - -f 1 selects the first field
 - /etc/passwd is the file being processed
 
-  This command displays usernames because the first field in /etc/passwd contains the usernmae
+  This command displays usernames because the first field in /etc/passwd contains the username
 
   To extract multiple fields:
 
-  '''Bash
+  ```bash
   cut -d ':' -f 1,3 /etc/passwd
-  '''
+  ```
 
   This displays usernames and their user IDs (UIDs)
 
@@ -181,21 +183,21 @@ Important options:
 
 Examples: 
 
-'''Bash
+```bash
 sort /etc/passwd
-'''
+```
 
 Sort the lines of /etc/passwd lexically
 
-'''Bash
+```bash
 sort -n numbers.txt
-'''
+```
 
 Sorts the lines in numbers.txt numerically
 
-'''Bash
+```bash
 sort -rn numbers.txt 
-'''
+```
 
 Sorts numbers from highest to lowest 
 
@@ -205,17 +207,17 @@ Pipes (|) send STDOUT from one command to STDIN of another command.
 
 Example 1 - Alphabetically sort usernames:
 
-'''Bash
+```bash
 cut -d ':' -f 1 /etc/passwd | sort
-'''
+```
 
 First, cut extracts the usernames. Then sort arranges them alphabetically
 
 Example 2 - Numerically sort UIDs:
 
-'''Bash
+```bash
 cut -d ':' -f 3 /etc/passwd | sort -n 
-'''
+```
 
 First, cut extacts the third field (UID). Then sort -n arranges those values numerically
 
@@ -225,9 +227,9 @@ The ps aux command displays information about running processes
 
 Its fourth column contains memory usage percentage (%MEM).
 
-'''Bash
+```bash
 ps aux | sort -k 4 -n
-'''
+```
 
 Explanation:
 * ps aux displays running processes
@@ -237,9 +239,9 @@ Explanation:
 
 To show the highest memory usage first:
 
-'''Bash
+```bash
 ps aux | sort -l 4 -nr
-'''
+```
 
 Note: These commands also sort the header row, so the header may not remain at the top
 

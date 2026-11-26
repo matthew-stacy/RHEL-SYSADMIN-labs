@@ -1,8 +1,6 @@
-# RHEL Environment Setup
+# Lab 01 · Setting Up My Linux VM
 
-## Objective
-
-Set up a Red Hat Enterprise Linux VM to use as my primary hands-on lab environment while developing Linux system administration skills and preparing for the RHCSA exam.
+I set up a RHEL 10 VM in Hyper-V so I could practice Linux commands on my own system. My first problem was a PXE boot screen. I used it to work backward through the VM's boot order and figure out why the installer wouldn't start.
 
 ## Lab Environment
 
