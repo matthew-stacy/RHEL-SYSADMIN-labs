@@ -1,11 +1,6 @@
+# Lab 05 · Working at a Local Linux Console
 
-# RHCSA 10 — Chapter 5: Working with Local Consoles
-
-> **Study resource:** Red Hat RHCSA 10 Cert Guide (EX200)  
-> **Environment:** Red Hat Enterprise Linux 10  
-> **Topics:** Consoles, terminals, root access, virtual terminals, and pseudo terminals
-
----
+I used this lab to sort out three terms I kept seeing: console, terminal, and shell. I compared graphical and text-based logins and learned when I would need to elevate privileges from a regular user account.
 
 ## 1. Understanding Consoles and Terminals
 
@@ -60,4 +55,6 @@ Instead:
 
 ---
 
-## 3. Root Access: sudo
+## 3. Next step
+
+I want to practice using `sudo` for a single administrative command from my regular user account.

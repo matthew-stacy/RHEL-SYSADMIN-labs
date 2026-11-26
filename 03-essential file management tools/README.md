@@ -1,17 +1,6 @@
-# Essential File Management Tools
+# Lab 03 · Finding and Managing Files
 
-## Topics that are covered in this chapter
-
-- Working with the File System Hierarchy
-- Managing Files
-- Using Links
-- Working with Archives and Compressed Files
-
-## RHCSA exam objectives are covered in this chapter
-
-- Create, delete, copy, and move files and directories
-- Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2
-- Create hard and soft links
+I wanted to understand where things live on a Linux system and how to get to them from the shell. I worked through absolute and relative paths, then looked at how mounts, links, and archives fit into everyday file management.
 
 ## Working with the File System Hierarchy
 
@@ -605,14 +594,14 @@ By itself, 'tar' creates an archive but does **not** compress it.
 
 Structure:
 
-'''bash
+```bash
 tar -cvf ARCHIVE.tar SOURCE
-'''
+```
 Example: 
 
-'''bash
+```bash
 tar -cvf /root/systemfiles.tar /etc /var/log
-'''
+```
 
 This creates 'systemfiles.tar' containing '/etc' and '/var/log'.
 
@@ -620,72 +609,75 @@ This creates 'systemfiles.tar' containing '/etc' and '/var/log'.
 
 To see what is stored inside an archive without extracting it: 
 
-'''bash
+```bash
 tar -tvf ARCHIVE.tar
-'''
+```
 Example:
 
-'''bash
+```bash
 tar -tvf /root/systemfiles.tar
-'''
+```
 
 ### Extracting an Archive
 
 Extract the entire archive into the current directory:
 
-'''bash
+```bash
 tar -xvf ARCHIVE.tar
-'''
+```
 
 Extract it into a specific directory:
 
-'''bash
+```bash
 tar -xvf ARCHIVE.tar -C DESTINATION
-'''
+```
 
 Example:
 
-'''bash
+```bash
 tar -xvf /root/systemfiles.tar -C /tmp
+```
 
 ### Extracting a Specific File
 
 Structure:
 
-'''bash
+```bash
 tar -xvf ARCHIVE.tar FILE
+```
 
 Example:
 
-'''bash
+```bash
 tar -xvf /root/systemfiles.tar etc/hosts
-'''
+```
 
 Extract the specific file into another directory:
 
-'''bash
+```bash
 tar -xvf ARCHIVE.tar FILE -C DESTINATION
-'''
+```
 
 Important structure to remember:
 
-'''text
-tar -xvf [ARCHIVE] [WHAT TO EXTRACT] -C [DESTINATION] 
+```text
+tar -xvf [ARCHIVE] [WHAT TO EXTRACT] -C [DESTINATION]
+```
 
 
 ### Adding Files to an Existing Archive
 
 Append a file:
 
-'''bash
+```bash
 tar -rvf ARCHIVE.tar FILE
-'''
+```
 
 Update an archive with newer versions of files:
 
-'''bash
+```bash
 tar -uvf ARCHIVE.tar SOURCE
-'''
+```
 
 ### Compression
 
@@ -701,29 +693,29 @@ Common Linux compression utilities:
 
 Compress an existing file:
 
-'''bash
+```bash
 gzip archive.tar
 bzip2 archive.tar
 xz archive.tar
-'''
+```
 
 These replace the original file with its compressed version. 
 
 Examples:
 
-'''text
+```text
 archive.tar -> archive.tar.gz
 archive.tar -> archive.tar.bz2
 archive.tar -> archive.tar.xz
-'''
+```
 
 ### Decompression Files
 
-'''bash
+```bash
 gunzip archive.tar.gz
 bunzip2 archive.tar.bz2
 unxz archive.tar.xz
-'''
+```
 
 ### Creating a Compressed Archive with 'tar'
 
@@ -731,37 +723,38 @@ Instead of creating an archive and compressing it separately, 'tar' can perform 
 
 gzip:
 
-'''bash
+```bash
 tar -czvf backup.tar.gz SOURCE
-'''
+```
 
 bipz2:
 
-'''bash
+```bash
 tar -cjvf backup.tar.bz2 SOURCE
-'''
+```
 
 xz:
 
-'''bash
+```bash
 tar -cJvf backup.tar.xz SOURCE
-'''
+```
 
 Compression options:
 
-'''text
+```text
 -z = gzip
 -j = bzip2
 -J = xz
+```
 
 
 ### Checking a File Type
 
 The 'file' command can identify the actual type of a file:
 
-'''bash
+```bash
 file archive.tar.gz
-'''
+```
 
 This is useful when the filename or extension does not clearly identify the file type.
 
