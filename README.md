@@ -1,6 +1,6 @@
 #RHEL System Administration Labs
 
-This repository documents my hands-on experience learning Red Hat Enterprise Linus (RHEL) and developing practical Linus system administration skills while preparing for the Red hat Certified System Adminstrator (RHCSA) exam.
+This repository documents my hands-on experience learning Red Hat Enterprise Linux (RHEL) and developing practical Linus system administration skills while preparing for the Red hat Certified System Adminstrator (RHCSA) exam.
 
 Rather than document theory alone, this repository focuses on practical labs, commands, troubleshooting, and sytem configuration performed in my RHEL lab environment.
 
